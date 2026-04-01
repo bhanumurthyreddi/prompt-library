@@ -36,7 +36,7 @@
     .main-container {
       max-width: 900px;
       margin: auto;
-      padding: 40px 20px;
+      padding: 40px 20px 0px;
     }
 
     .prompt-card {
@@ -54,21 +54,71 @@
       padding: 4px 8px;
       border-radius: 8px;
       font-size: 0.75rem;
-      border: 1px solid;
+      border: 1px solid currentColor;
+      color: inherit;
     }
 
-    .badge-writing { color: #2563eb; border-color: #2563eb; }
-    .badge-coding { color: #16a34a; border-color: #16a34a; }
-    .badge-marketing { color: #d97706; border-color: #d97706; }
-    .badge-learning { color: #0891b2; border-color: #0891b2; }
-    .badge-career { color: #dc2626; border-color: #dc2626; }
-    .badge-productivity { color: #6b7280; border-color: #6b7280; }
+    .badge-writing { color: #1d4ed8; border-color: #1d4ed8; background-color: rgba(37, 99, 235, 0.1); }
+    .badge-coding { color: #047857; border-color: #047857; background-color: rgba(22, 163, 74, 0.1); }
+    .badge-marketing { color: #b45309; border-color: #b45309; background-color: rgba(217, 119, 6, 0.1); }
+    .badge-learning { color: #0c4a6e; border-color: #0c4a6e; background-color: rgba(8, 145, 178, 0.1); }
+    .badge-career { color: #991b1b; border-color: #991b1b; background-color: rgba(220, 38, 38, 0.1); }
+    .badge-productivity { color: #4b5563; border-color: #4b5563; background-color: rgba(107, 114, 128, 0.1); }
 
     .btn-ghost {
       border: 1px solid var(--border);
       background: transparent;
       border-radius: 8px;
       padding: 6px 12px;
+    }
+        /* Dark Mode */
+    body.dark {
+      --bg: #0f172a;
+      --text: #e5e7eb;
+      --muted: #9ca3af;
+      --border: #1f2933;
+      --hover: #1e293b;
+    }
+
+    body.dark .navbar,
+    body.dark .prompt-card {
+      background: var(--bg);
+      border-color: var(--border);
+    }
+
+    body.dark .prompt-card {
+      box-shadow: 0 0 0 1px var(--border);
+    }
+
+    .navbar,
+    .prompt-card,
+    .main-container,
+    .promptList,
+    .container,
+    .form-control,
+    .btn-ghost {
+      color: var(--text);
+    }
+
+    .text-muted {
+      color: var(--muted) !important;
+    }
+
+    .form-control {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      color: var(--text);
+      box-shadow: none;
+    }
+
+    .form-control:focus {
+      border-color: var(--border);
+      box-shadow: 0 0 0 0.2rem rgba(148, 163, 184, 0.25);
+    }
+
+    .btn-ghost {
+      border-color: var(--border);
+      color: var(--text);
     }
   </style>
 </head>
@@ -87,13 +137,15 @@
     </div>
   </nav>
 
-<div class="main-container">
+<section class="promptList">
+  <div class="container">
+    <div class="main-container">
+      <input id="searchInput" class="form-control mb-4" placeholder="Search prompts...">
+    </div>
+    <div id="promptList" class="d-flex flex-column gap-3"></div>
+  </div>
+</section>
 
-  <input id="searchInput" class="form-control mb-4" placeholder="Search prompts...">
-
-  <div id="promptList" class="d-flex flex-column gap-3"></div>
-
-</div>
 
 <script>
   let promptsData = [];
@@ -114,17 +166,17 @@
     data.forEach(item => {
       container.innerHTML += `
         <div class="prompt-card">
-          <div class="d-flex justify-content-between">
+          <div class="d-flex justify-content-between align-items-start">
             <div>
-              <div class="fw-semibold">${item.title}</div>
-              <div class="text-muted small">${item.description}</div>
-              <div class="mt-2">
+              <div class="mb-2">
                 <span class="badge-outline ${item.badgeClass}">
                   ${item.category}
                 </span>
               </div>
+              <div class="fw-semibold">${item.title}</div>
+              <div class="text-muted small">${item.description}</div>
             </div>
-            <button class="btn-ghost" onclick="copyPrompt('${item.prompt}')">
+            <button class="btn-ghost copy-btn" data-prompt="${encodeURIComponent(item.prompt)}">
               Copy
             </button>
           </div>
@@ -138,6 +190,15 @@
     navigator.clipboard.writeText(text);
     alert("Prompt copied!");
   }
+
+  // Copy buttons (safe with multiline content)
+  document.getElementById('promptList').addEventListener('click', function (event) {
+    const btn = event.target.closest('.copy-btn');
+    if (!btn) return;
+    const encoded = btn.getAttribute('data-prompt');
+    if (!encoded) return;
+    copyPrompt(decodeURIComponent(encoded));
+  });
 
   // Search
   document.getElementById("searchInput").addEventListener("keyup", function () {

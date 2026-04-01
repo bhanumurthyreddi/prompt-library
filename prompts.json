@@ -1,44 +1,16 @@
 [
   {
-    "title": "Story Generator",
-    "description": "Generate a short story with a meaningful lesson.",
-    "category": "Writing",
+    "title": "Course Outline: Next.js",
+    "description": "Create a comprehensive course outline for learning Next.js.",
+    "category": "Education",
     "badgeClass": "badge-writing",
-    "prompt": "Write a short engaging story with a moral."
+    "prompt": "Create a comprehensive and well-structured course outline for learning Next.js from beginner to advanced level.\nOnly provide the list of topics (no explanations).\nThe course should:\n* Start from fundamentals and progress to advanced concepts\n* Be organized into sections/modules\n* Cover both theory and practical concepts\n* Include modern Next.js features (App Router, Server Components, etc.)\n* Include real-world topics like deployment, performance, and SEO\nEnsure the topics include (but are not limited to):\n* React basics required for Next.js\n* Next.js fundamentals\n* Routing (App Router & Pages Router)\n* Data fetching methods\n* Server-side rendering (SSR), Static Site Generation (SSG), Incremental Static Regeneration (ISR)\n* API routes and backend capabilities\n* Styling methods\n* Authentication and authorization\n* State management\n* Performance optimization\n* Testing\n* Deployment and production best practices\nReturn only a clean, numbered list of sections and subtopics."
   },
   {
-    "title": "React Component",
-    "description": "Create reusable React components.",
-    "category": "Coding",
-    "badgeClass": "badge-coding",
-    "prompt": "Build a reusable React component using hooks."
-  },
-  {
-    "title": "Ad Copy",
-    "description": "Write high-converting marketing copy.",
-    "category": "Marketing",
-    "badgeClass": "badge-marketing",
-    "prompt": "Write a high-converting ad copy."
-  },
-  {
-    "title": "Explain Concept",
-    "description": "Simplify complex ideas.",
-    "category": "Learning",
-    "badgeClass": "badge-learning",
-    "prompt": "Explain a complex topic in simple terms."
-  },
-  {
-    "title": "Mock Interview",
-    "description": "Practice interview Q&A.",
-    "category": "Career",
-    "badgeClass": "badge-career",
-    "prompt": "Act as an interviewer and ask technical questions."
-  },
-  {
-    "title": "Daily Planner",
-    "description": "Plan your day efficiently.",
-    "category": "Productivity",
-    "badgeClass": "badge-productivity",
-    "prompt": "Create a structured daily plan."
+    "title": "Course Topic: JavaScript ES6+ Essentials",
+    "description": "Create a comprehensive guide to JavaScript ES6+ features.",
+    "category": "Education",
+    "badgeClass": "badge-writing",
+    "prompt": "Teach me the topic: “JavaScript ES6+ Essentials (Arrow Functions, Destructuring, Spread/Rest, Modules)” in a structured, beginner-friendly to advanced manner."
   }
 ]
