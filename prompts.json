@@ -1,0 +1,44 @@
+[
+  {
+    "title": "Story Generator",
+    "description": "Generate a short story with a meaningful lesson.",
+    "category": "Writing",
+    "badgeClass": "badge-writing",
+    "prompt": "Write a short engaging story with a moral."
+  },
+  {
+    "title": "React Component",
+    "description": "Create reusable React components.",
+    "category": "Coding",
+    "badgeClass": "badge-coding",
+    "prompt": "Build a reusable React component using hooks."
+  },
+  {
+    "title": "Ad Copy",
+    "description": "Write high-converting marketing copy.",
+    "category": "Marketing",
+    "badgeClass": "badge-marketing",
+    "prompt": "Write a high-converting ad copy."
+  },
+  {
+    "title": "Explain Concept",
+    "description": "Simplify complex ideas.",
+    "category": "Learning",
+    "badgeClass": "badge-learning",
+    "prompt": "Explain a complex topic in simple terms."
+  },
+  {
+    "title": "Mock Interview",
+    "description": "Practice interview Q&A.",
+    "category": "Career",
+    "badgeClass": "badge-career",
+    "prompt": "Act as an interviewer and ask technical questions."
+  },
+  {
+    "title": "Daily Planner",
+    "description": "Plan your day efficiently.",
+    "category": "Productivity",
+    "badgeClass": "badge-productivity",
+    "prompt": "Create a structured daily plan."
+  }
+]
